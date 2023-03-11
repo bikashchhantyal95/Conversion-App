@@ -2,12 +2,9 @@ package com.bikash.conversionapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.core.widget.addTextChangedListener
 import com.bikash.conversionapp.databinding.ActivityMainBinding
 
 
@@ -15,8 +12,6 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     var inputValue: Double = 0.0
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,14 +29,12 @@ class MainActivity : AppCompatActivity() {
 
         binding.button.setOnClickListener(){
             inputValue = binding.inputValue.text.toString().toDouble()
-            var fromUnit = binding.fromConversion.selectedItem as String
-            var toUnit = binding.toConversion.selectedItem as String
+            
         }
         binding.fromConversion.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener{
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                    var selectedUnit = parent?.getItemAtPosition(position).toString()
-                    binding.outputValue.text = selectedUnit.toString()
+
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -52,16 +45,35 @@ class MainActivity : AppCompatActivity() {
         binding.toConversion.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener{
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                    var selectedUnit = parent?.getItemAtPosition(position).toString()
-                    binding.outputValue.text = selectedUnit.toString()
+
                 }
                 override fun onNothingSelected(parent: AdapterView<*>?) {
 
                 }
 
             }
+
+
     }
 
+    fun computeValue(from: Unit, to: Unit, value: Double): Double {
+//        convert the value into meters
+        val baseValue = value * from.factor
+//        convert the value from meter to desired unit
+        return baseValue / to.factor
+    }
+
+
+    enum class Unit(val factor: Double){
+        METER(1.0),
+        KILOMETER(1000.0),
+        CENTIMETER(0.01),
+        MILLIMETER(0.001),
+        FOOT(0.3048),
+        INCH(0.0254),
+        YARD(0.9144),
+        MILE(1609.3)
+    }
 }
 
 
