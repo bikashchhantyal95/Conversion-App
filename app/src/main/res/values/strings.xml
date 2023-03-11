@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Conversion App</string>
+    <string name="to">TO</string>
+    <string name="btn_text">Submit</string>
+    <string-array name="conversion_types">
+        <item>Kilogram</item>
+        <item>Gram</item>
+        <item>Milligram</item>
+        <item>Pound</item>
+        <item>Oz</item>
+        <item>Ounce</item>
+    </string-array>
+</resources>
