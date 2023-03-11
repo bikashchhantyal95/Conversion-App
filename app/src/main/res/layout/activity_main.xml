@@ -20,7 +20,6 @@
             android:layout_height="match_parent"
             android:layout_width="wrap_content"
             android:layout_weight="1"
-            android:entries="@array/conversion_types"
             android:spinnerMode="dropdown"
             android:background="@drawable/spinner_background"
             style="@style/SpinnerStyle" />

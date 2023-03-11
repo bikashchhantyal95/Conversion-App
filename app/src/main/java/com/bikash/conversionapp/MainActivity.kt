@@ -2,7 +2,12 @@ package com.bikash.conversionapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.core.widget.addTextChangedListener
 import com.bikash.conversionapp.databinding.ActivityMainBinding
 
 
@@ -10,6 +15,8 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     var inputValue: Double = 0.0
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,11 +34,34 @@ class MainActivity : AppCompatActivity() {
 
         binding.button.setOnClickListener(){
             inputValue = binding.inputValue.text.toString().toDouble()
-            binding.outputValue.text = inputValue.toString()
+            var fromUnit = binding.fromConversion.selectedItem as String
+            var toUnit = binding.toConversion.selectedItem as String
         }
+        binding.fromConversion.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                    var selectedUnit = parent?.getItemAtPosition(position).toString()
+                    binding.outputValue.text = selectedUnit.toString()
+                }
 
+                override fun onNothingSelected(parent: AdapterView<*>?) {
 
+                }
+
+            }
+        binding.toConversion.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                    var selectedUnit = parent?.getItemAtPosition(position).toString()
+                    binding.outputValue.text = selectedUnit.toString()
+                }
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+
+                }
+
+            }
     }
+
 }
 
 
