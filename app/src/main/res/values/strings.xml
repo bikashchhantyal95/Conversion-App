@@ -3,13 +3,13 @@
     <string name="to">TO</string>
     <string name="btn_text">Submit</string>
     <string-array name="conversion_types">
-        <item>meter</item>
-        <item>kilometer</item>
-        <item>millimeter</item>
-        <item>centimeter</item>
-        <item>foot</item>
-        <item>yard</item>
-        <item>mile</item>
-        <item>inch</item>
+        <item>Meter</item>
+        <item>Kilometer</item>
+        <item>Millimeter</item>
+        <item>Centimeter</item>
+        <item>Foot</item>
+        <item>Yard</item>
+        <item>Mile</item>
+        <item>Inch</item>
     </string-array>
 </resources>
