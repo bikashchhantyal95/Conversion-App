@@ -2,23 +2,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="40dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
+        android:orientation="vertical">
+<!--        Edit text to take in user input-->
         <EditText
             android:id="@+id/inputValue"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
             android:layout_weight="1"
             android:autofillHints="Enter a value"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:background="@drawable/border"
+            android:layout_marginBottom="15dp"
+            android:paddingHorizontal="20dp"/>
+<!--        Spinner for fromConversion -->
         <Spinner
             android:id="@+id/fromConversion"
-            android:layout_height="match_parent"
-            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_width="match_parent"
             android:layout_weight="1"
             android:spinnerMode="dropdown"
             android:background="@drawable/spinner_background"
@@ -26,16 +31,20 @@
     </LinearLayout>
     <LinearLayout
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+<!--Text view to display "TO" text-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/to"
             android:textAlignment="center"
             android:textSize="40sp"
+            android:layout_weight="1"
             />
+
     </LinearLayout>
+<!--    Spinner to select the desired conversion units for [toConversion]-->
     <Spinner
         android:id="@+id/toConversion"
         android:layout_width="match_parent"
@@ -44,24 +53,15 @@
         android:entries="@array/conversion_types"
         android:spinnerMode="dropdown" />
 
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_text"
-        android:textSize="20sp"
-        android:textColor="@color/white"
-        android:background="@color/teal_200"
-        />
-
+<!--    displays the computed output value-->
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:text="Value"
-        android:textSize="40sp"
+        android:textSize="20sp"
         android:textAlignment="center"
         android:id="@+id/outputValue"
+        android:layout_marginTop="10dp"
         />
 
 </LinearLayout>
