@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 // set up
         binding.inputValue.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
+// do nothing
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-
+// do nothong
             }
 
         })
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-
+// do nothing
                 }
 
             }
@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
                 computeAndDisplay()
                 }
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-
+// do nothing
                 }
 
             }
